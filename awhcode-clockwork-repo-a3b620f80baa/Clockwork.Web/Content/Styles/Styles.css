@@ -1,0 +1,62 @@
+﻿
+
+.error {
+    color: #D8000C;
+    background-color: #FFD2D2;
+}
+
+.dataContainer {
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+    background-color: #F8F8F8;   
+    padding:5px;
+}
+table {
+    border-collapse: collapse;
+    width: 80%;
+    border: 20px;
+    font-family: Calibri;
+}
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: white;
+}
+
+/*extra small*/
+@media only screen and (max-width: 600px) {
+    table {
+        font-size: 10px;
+        width: 100%;
+    }
+    .dropDown {
+        font-size: 10px;
+    }
+}
+
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    table {
+        font-size: 12px;
+        width: 90%;
+
+    }
+    .dropDown {
+        font-size: 12px;
+    }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    table {
+        font-size: 16px;
+    }
+    .dropDown {
+        font-size: 16px;
+    }
+}
+

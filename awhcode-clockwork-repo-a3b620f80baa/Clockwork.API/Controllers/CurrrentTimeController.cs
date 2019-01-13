@@ -9,17 +9,26 @@ namespace Clockwork.API.Controllers
     {
         // GET api/currenttime
         [HttpGet]
-        public IActionResult Get()
+        public IActionResult Get([FromQuery(Name = "timeZone")] string timeZoneId)
         {
+            if(timeZoneId == null || timeZoneId == string.Empty)
+            {
+                return BadRequest("You must choose a time zone");
+            }
             var utcTime = DateTime.UtcNow;
             var serverTime = DateTime.Now;
             var ip = this.HttpContext.Connection.RemoteIpAddress.ToString();
+
+            TimeZoneInfo timeZone = TimeZoneInfo.FindSystemTimeZoneById(timeZoneId);
+            DateTime displayTime = TimeZoneInfo.ConvertTime(serverTime, timeZone);
 
             var returnVal = new CurrentTimeQuery
             {
                 UTCTime = utcTime,
                 ClientIp = ip,
-                Time = serverTime
+                Time = serverTime,
+                DisplayTime = displayTime,
+                TimeZoneName = timeZone.DisplayName
             };
 
             using (var db = new ClockworkContext())
@@ -37,5 +46,6 @@ namespace Clockwork.API.Controllers
 
             return Ok(returnVal);
         }
+      
     }
 }
