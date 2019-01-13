@@ -16,7 +16,9 @@ namespace Clockwork.API.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     ClientIp = table.Column<string>(nullable: true),
                     Time = table.Column<DateTime>(nullable: false),
-                    UTCTime = table.Column<DateTime>(nullable: false)
+                    UTCTime = table.Column<DateTime>(nullable: false),
+                    DisplayTime = table.Column<DateTime>(nullable: false),
+                    TimeZoneName = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {

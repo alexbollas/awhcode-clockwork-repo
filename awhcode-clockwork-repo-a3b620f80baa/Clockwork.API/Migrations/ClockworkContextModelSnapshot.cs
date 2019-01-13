@@ -26,9 +26,13 @@ namespace Clockwork.API.Migrations
 
                     b.Property<string>("ClientIp");
 
+                    b.Property<string>("TimeZoneName");
+
                     b.Property<DateTime>("Time");
 
                     b.Property<DateTime>("UTCTime");
+
+                    b.Property<DateTime>("DisplayTime");
 
                     b.HasKey("CurrentTimeQueryId");
 

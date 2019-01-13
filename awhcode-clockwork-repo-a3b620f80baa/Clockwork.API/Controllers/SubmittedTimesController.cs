@@ -13,13 +13,6 @@ namespace Clockwork.API.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-
-            //var returnVal = new CurrentTimeQuery
-            //{
-            //    UTCTime = utcTime,
-            //    ClientIp = ip,
-            //    Time = serverTime
-            //};
             List<CurrentTimeQuery> times = new List<CurrentTimeQuery>();
             using (var db = new ClockworkContext())
             {

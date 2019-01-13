@@ -1,21 +1,42 @@
-﻿<script>
-function UserAction() {
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            document.getElementById("output").innerHTML = this.responseText;
-        }
-    };
-    xhttp.open("GET", "http://127.0.0.1:5000/api/currenttime", true);
-    xhttp.setRequestHeader("Content-type", "application/json");
-    xhttp.send();
-
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
-</script>
-
+<head>
+    <script type="text/javascript" src="~/Content/Scripts/Index.js"></script>    
+</head>
 <h2>AWH Clockwork Project @ViewData["Version"] on @ViewData["Runtime"]!</h2>
-
 
 <button type="submit" onclick="UserAction()">Get the time</button>
 
-<p id="output"></p>
+<select id="timeZoneList" class="dropDown">
+    
+</select>
+
+<br />
+<br />
+<div class="dataContainer" id="outputContainer" hidden>
+    <h3 id="outputHeader">Entry Saved</h3>
+    <p id="output"></p>
+
+    <div id="userActionError" class="error" hidden>
+
+    </div>
+</div>
+<br />
+
+<div class="dataContainer">
+    <h3>All times saved</h3>
+    <div id="submittedTimesDisplay">
+        <table id="dataTable">
+            <tr>
+                <th>Time</th>
+                <th>Time Zone</th>
+                <th>UTC Time</th>
+                <th>IP Address</th>
+                <th>ID</th>
+            </tr>
+
+        </table>
+    </div>
+</div>
